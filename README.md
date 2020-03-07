@@ -11,7 +11,7 @@ It's a way to connect Event creators and allow them to improve thier buissneses 
 
     **Product Owner**: Wajdi Hamrouni
     **Scrum Master**: Mohammed Amine Slaimia
-    **Team Members**: Sofian Saleh, Zied Brhoumi, Fares Jelasi
+    **Team Members**: Sofian Saleh, Zied Barhoumi, Fares Jelasi
 
 
 # Usage

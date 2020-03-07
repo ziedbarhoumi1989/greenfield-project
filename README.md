@@ -37,13 +37,7 @@ From within the root directory:
 - `npm run server-dev`
 
 
-## Tasks
 
-- Organizer Dashboard and Event Creation done By the Scrum master.
-- Authentication and the ticket preview done by the product owner.
-- User profile Dashboard and interface comments and rating done by Sofian Saleh.
-
-# Contributing
 
 1. Fork from this repo.
    `git remote add remote https://github.com/TeamSix-ORG/greenfield-project.git`

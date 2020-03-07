@@ -25,7 +25,7 @@ Start by signing up as an organaizer and then add an event and users can attend 
 - react: 16.12.0
 - mongoose : 5.8.7
 
-# Depelopment
+
 
 
 ## Installing Dependencies

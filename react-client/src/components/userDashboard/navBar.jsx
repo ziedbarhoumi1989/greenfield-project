@@ -2,13 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class NavBar extends Component {
-  updateState(data) {
-    if (data) {
-      this.setState({
-        eventsArr: data
-      });
-    }
-  }
+  // a typical navbar
   render() {
     return (
       <div>

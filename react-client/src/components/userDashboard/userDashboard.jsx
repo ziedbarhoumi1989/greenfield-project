@@ -29,6 +29,11 @@ class UserDashboard extends Component {
     });
   }
   //  WHEN THE PAGE IS LOADED WE MAKE A REQUEST TO PULL THE WHOLE  DATA BASE AND THEN ON SUCCESS WE CALL THE FECH FUNCTION
+  /**
+   * @params {} takes nothing
+   * @returns {} all the events that are avaliable in the database and update the state with the events
+   * arrays that are back from the database
+   */
   componentDidMount() {
     let User = {};
     if (localStorage && localStorage.getItem("user")) {

@@ -39,6 +39,11 @@ class createEvent extends Component {
       });
     }
   }
+  /**
+   *
+   * @param {*} event
+   * @returns {} it submits the created event info to the database where it will be saved
+   */
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state);

@@ -18,8 +18,9 @@ class OrganizerDashboard extends Component {
     super(props);
     this.state = { ownevents: [], userId: "" };
   }
-
-  //  WHEN THE PAGE IS LOADED WE MAKE A REQUEST TO PULL THE WHOLE  DATA BASE AND THEN ON SUCCESS WE CALL THE FECH FUNCTION
+  /**
+   * @return {} it brings back all the events that are associated with the specific organizer
+   */
   componentDidMount() {
     let User = {};
     if (localStorage && localStorage.getItem("user")) {
@@ -27,15 +28,7 @@ class OrganizerDashboard extends Component {
       this.setState({
         userId: User._id
       });
-      //   return (
-      //     <Redirect
-      //       to={{
-      //         pathname: "/createevent"
-      //       }}
-      //     />
-      //   );
     }
-    console.log(User._id);
     axios.post(`/api/eventscreated/${User._id}`).then(res => {
       console.log(res.data);
       this.setState({

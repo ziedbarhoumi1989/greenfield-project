@@ -35,6 +35,7 @@ class EventsList extends Component {
   }
 
   render() {
+    //##########  S T Y L E S ##########\\
     const container = {
       margin: "50px auto 0",
       width: "700px",
@@ -55,7 +56,12 @@ class EventsList extends Component {
     const ps = {
       padding: "2px 16px"
     };
-
+    //##########  S T Y L E S ##########\\
+    /**
+     * CHECKS THE EVENT LIST TO CHECK WHICH COMPONENT TO RENDER
+     * THEN CHECKS THE LENGTH OF THE ARRAY OF EVENTS
+     * MAPS THROUGH THEM AND SHOWS THEM
+     */
     return (
       <div>
         {this.state.eventList ? (

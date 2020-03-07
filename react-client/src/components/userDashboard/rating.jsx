@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// Using the library BeautyStar to get the rating to be a star
 import BeautyStars from "beauty-stars";
 import $ from "jquery";
 
@@ -7,12 +8,17 @@ class Ratings extends Component {
     super(props);
     this.state = { value: 0, rating: null };
   }
+  //it invokes the function after one second from updating the state
+
   updateState() {
     setTimeout(() => {
       this.ratingSubmit();
     }, 1000);
   }
-
+  /**
+   * @returns {} it returns the rating once the component is fired up
+   * and then calculates the average  and then displays it
+   */
   componentDidMount() {
     $.ajax({
       url: `/api/rate/${this.props.eventId}`,
@@ -33,17 +39,16 @@ class Ratings extends Component {
       }
     });
   }
-
+  /**
+   * @returns {} submits the rating of the user to the data base
+   */
   ratingSubmit() {
-    console.log(this.state.value);
     var obj = { rating: this.state.value };
     $.ajax({
       url: `/api/rate/${this.props.eventId}`,
       type: "POST",
       data: obj,
       success: data => {
-        // this.setState({ rating: data.results });
-        // console.log(data);
         this.componentDidMount();
       },
       error: err => {

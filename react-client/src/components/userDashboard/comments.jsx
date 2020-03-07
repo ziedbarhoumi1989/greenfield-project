@@ -13,17 +13,21 @@ class Comments extends Component {
       comments: []
     };
   }
-
+  /**
+   *
+   * @param {*} e
+   * @returns {} UPDATES THE COMMENT STATE WITH AWHAT IS WRITTEN IN THE TEXTBOX
+   */
   changeHandler(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-
-  updateState() {
-    this.setState({
-      redirect: !this.state.redirect
-    });
-  }
-
+  /**
+   *
+   * @param {*} e
+   * @returns {} takes the user id from the local storage
+   * checks if the textbox is empty
+   * sends an axios request to the server with the comments
+   */
   submitComment(e) {
     e.preventDefault();
     let User = {};
@@ -40,43 +44,19 @@ class Comments extends Component {
         username: User.username,
         comment: this.state.comment
       };
-      // console.log(obj, this.props.comments);
       Axios.post(`/api/comment/${this.props.comments._id}`, obj).then(data => {
         if (data.data === "Comment Was Sent") {
-          //   console.log(data.data);
-          //   this.setState({
-          //     redirect: true
-          //   });
           alert("Comment Was Sent");
-          this.componentDidMount();
         }
       });
     } else {
       alert("PLEASE FILL THE TEXT BOX");
     }
   }
-  componentDidMount() {
-    Axios.get(`/api/comment/${this.props.comments._id}`).then(response => {
-      console.log(response);
-      console.log(response.data[0].comments);
-      this.setState({ comments: response.data[0].comments });
-    });
-  }
+
   render() {
     const { comment } = this.state;
 
-    // if (this.state.redirect) {
-    //   this.setState({
-    //     redirect: true
-    //   });
-    //   return (
-    //     <Redirect
-    //       to={{
-    //         pathname: "/profile"
-    //       }}
-    //     />
-    //   );
-    // }
     return (
       <div>
         <div className="container">

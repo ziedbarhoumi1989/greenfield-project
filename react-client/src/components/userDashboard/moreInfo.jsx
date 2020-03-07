@@ -20,11 +20,18 @@ class MoreInfo extends Component {
       eventId: ""
     };
   }
-
+  /**
+   *
+   * @param {e} updates the state of the input field depending on their name and value
+   */
   changeHandler(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-
+  /**
+   *
+   * @param {*} e is invoked when you want to attend the event and click the FREE button
+   * so it sends your data to the data base
+   */
   attendToggler(e) {
     // Send request to the backend with the id of the event and user id
     let User = {};
@@ -59,7 +66,10 @@ class MoreInfo extends Component {
 
     this.updateState();
   }
-
+  /**
+   *
+   * @param {*} e changes the view after the data is sent to the database from more info to the homepage
+   */
   updateState(e) {
     // e.preventDefault();
     this.setState({
@@ -67,7 +77,10 @@ class MoreInfo extends Component {
       home: true
     });
   }
-
+  /**
+   *
+   * @param {*} e if the event costs money it will send you to the payment page
+   */
   attendTogglerMoney(e) {
     e.preventDefault();
     this.setState({

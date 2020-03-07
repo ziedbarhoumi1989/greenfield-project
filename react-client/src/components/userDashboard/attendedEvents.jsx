@@ -26,7 +26,11 @@ class AttendedEvents extends Component {
       [e.target.name]: e.target.value
     });
   }
-
+  /**
+   *
+   * @param {*} e
+   * @returns {} changes the view when called upon from the attended events page to the dashboard
+   */
   toggleStates(e) {
     e.preventDefault();
     this.setState({
@@ -34,7 +38,12 @@ class AttendedEvents extends Component {
       dashboard: true
     });
   }
-
+  /**
+   * @returns {} make an axios request to get the profile of a spcific user
+   * and then get all the events from the database and loop through it
+   * to get only the attended events
+   * then update the state with the filltered array
+   */
   componentDidMount() {
     let User = {};
     if (localStorage && localStorage.getItem("user")) {
@@ -67,7 +76,13 @@ class AttendedEvents extends Component {
       redirectToUserDashboard: true
     });
   }
-
+  /**
+   * @returns {} this is fired when clicking on the cancel button function it takes
+   * the id of the event that has been clicked on and then brings the profile associated with this cancelation event
+   * fillter out the canceled event from the id that was sent and then sends request to the database and adds the filltered
+   * array to the database
+   *
+   */
   clickHandler() {
     let User = {};
     if (localStorage && localStorage.getItem("user")) {
@@ -79,7 +94,6 @@ class AttendedEvents extends Component {
 
     axios.post(`/api/profile/${User._id}`).then(res => {
       const data1 = res.data;
-      console.log(data1);
       for (var i = 0; i < data1.length; i++) {
         if (data1[i] !== this.state.eventId) {
           data1.splice(i, 1);
@@ -91,7 +105,6 @@ class AttendedEvents extends Component {
       } else {
         obj.attendedEvents = data1;
       }
-      console.log(obj);
       $.ajax({
         url: `/api/user/${User._id}`,
         type: "post",
